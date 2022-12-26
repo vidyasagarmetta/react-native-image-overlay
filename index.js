@@ -6,9 +6,9 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  ViewPropTypes
+  Image
 } from "react-native";
+import { ViewPropTypes } from "deprecated-react-native-prop-types";
 
 const { width } = Dimensions.get("window");
 
@@ -26,6 +26,8 @@ export default class ImageOverlay extends Component {
       source,
       title,
       titleStyle,
+      borderRadius,
+      width,
       ...props
     } = this.props;
 
@@ -44,8 +46,9 @@ export default class ImageOverlay extends Component {
         style={[
           styles.image,
           {
-            borderRadius: rounded,
+            borderRadius: borderRadius,
             height: height,
+            width: width,
             justifyContent: justifyContent
           },
           containerStyle
@@ -83,10 +86,10 @@ const styles = StyleSheet.create({
 
 ImageOverlay.propTypes = {
   rounded: PropTypes.number,
-  source: Image.propTypes.source,
+  //source: Image.propTypes.source,
   height: PropTypes.number,
   title: PropTypes.string,
-  titleStyle: Text.propTypes.style,
+  //titleStyle: Text.propTypes.style,
   overlayColor: PropTypes.string,
   overlayAlpha: PropTypes.number,
   contentPosition: PropTypes.oneOf(["top", "center", "bottom"]),
