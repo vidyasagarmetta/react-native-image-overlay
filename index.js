@@ -26,6 +26,8 @@ export default class ImageOverlay extends Component {
       source,
       title,
       titleStyle,
+      borderRadius,
+      width,
       ...props
     } = this.props;
 
@@ -44,8 +46,9 @@ export default class ImageOverlay extends Component {
         style={[
           styles.image,
           {
-            borderRadius: rounded,
+            borderRadius: borderRadius,
             height: height,
+            width: width,
             justifyContent: justifyContent
           },
           containerStyle
